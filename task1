@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu with Social Icons</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS to enable smooth transitions for the navbar and links */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .navbar a {
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar.scrolled {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled a {
+            color: #3b82f6; /* Change link color when scrolled */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navigation Bar -->
+    <nav id="main-nav" class="navbar fixed top-0 left-0 w-full z-50 p-4">
+        <div class="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8">
+            <!-- Brand/Logo -->
+            <a href="#" class="text-2xl font-bold text-gray-800 transition duration-300 ease-in-out">Brand</a>
+            
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-4">
+                <ul class="flex space-x-4 sm:space-x-6 md:space-x-8">
+                    <li>
+                        <a href="#home" class="text-gray-600 hover:text-blue-500 font-medium px-2 py-1 rounded-md">Home</a>
+                    </li>
+                </ul>
+
+                <!-- Social Media Icons -->
+                <ul class="flex space-x-4 ml-4">
+                    <li>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-gray-600 hover:text-blue-500 text-lg transition duration-300 ease-in-out">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-600 hover:text-blue-500 text-lg transition duration-300 ease-in-out">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-600 hover:text-blue-500 text-lg transition duration-300 ease-in-out">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content to make the page scrollable -->
+    <div class="h-[1200px] flex items-center justify-center pt-24">
+        <div class="container mx-auto p-8 text-center">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Scroll Down to See the Magic!</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">This is a tall section of content to enable scrolling. Watch the navigation bar change as you scroll down.</p>
+        </div>
+    </div>
+    
+    <div class="h-[1200px] flex items-center justify-center bg-gray-200">
+        <div class="container mx-auto p-8 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Section 2</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">More content to keep the scroll bar going.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            
+            // Function to handle the scroll event
+            const handleScroll = () => {
+                // Check if the user has scrolled down more than 50 pixels
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            };
+
+            // Add the scroll event listener to the window
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+</body>
+</html>
